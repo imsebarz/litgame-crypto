@@ -43,7 +43,7 @@ const Details = () => {
             <Card className='details shadow w-100 h-auto d-flex flex-row justify-content-between m-auto p-5'>
                 <div className='row w-100 h-100'>
                     {card && Object.keys(card).map(item =>
-                        card[item] == '' ? '' :
+                        card[item] === '' ? '' :
                             (
                                 <div className="col-md-6 col-sm-12 h-auto p-1">
                                     <small className='text-secondary'>{item.toUpperCase()}</small>

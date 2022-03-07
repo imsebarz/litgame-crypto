@@ -5,24 +5,18 @@ import { connector } from '../../../config/web3';
 
 const ModalLogin = ({ show, close }) => {
 
-    const { active, activate, deactivate, account, error, chanId } = useWeb3React()
+    const { activate } = useWeb3React()
 
     const Login = useCallback(() => {
         activate(connector)
         localStorage.setItem('previouslyConnected', true)
         close()
-    }, [activate])
+    }, [activate, close])
 
     useEffect(() => {
         if (localStorage.getItem('previouslyConnected') === "true")
             Login()
     }, [Login])
-
-
-    const Logout = () => {
-        deactivate()
-        localStorage.removeItem('previouslyConnected')
-    }
 
 
     return (

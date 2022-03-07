@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import Marketplace from './pages/Marketplace/Marketplace';
-import { Button, Container, Nav, Navbar, NavDropdown, Tooltip } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import Logo from './logo.svg'
 import Details from './pages/Details/Details';
 
@@ -20,7 +20,7 @@ import { connector } from './config/web3';
 
 function App() {
 
-  const { active, activate, deactivate, account, error, chanId } = useWeb3React()
+  const { active, activate, deactivate, account } = useWeb3React()
 
   const Login = useCallback(() => {
     activate(connector)
