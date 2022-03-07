@@ -1,0 +1,20 @@
+#home-stats {
+  border-radius: 35px;
+}
+
+.info {
+  border-radius: 20px;
+  min-width: max-content;
+  padding-right: 2rem;
+}
+
+.info.cards {
+  background-color: #e88300;
+}
+
+.carousel-item {
+  img {
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+}
