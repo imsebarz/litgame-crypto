@@ -7,17 +7,40 @@ import {
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
 import Marketplace from './pages/Marketplace/Marketplace';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown, Tooltip } from 'react-bootstrap';
 import Logo from './logo.svg'
 import Details from './pages/Details/Details';
+
+// web3 
+import { useCallback, useEffect } from 'react';
+import { useWeb3React } from '@web3-react/core';
+import { connector } from './config/web3';
 
 
 
 function App() {
+
+  const { active, activate, deactivate, account, error, chanId } = useWeb3React()
+
+  const Login = useCallback(() => {
+    activate(connector)
+    localStorage.setItem('previouslyConnected', true)
+  }, [activate])
+
+  useEffect(() => {
+    if (localStorage.getItem('previouslyConnected') === "true")
+      Login()
+  }, [Login])
+
+
+  const Logout = () => {
+    deactivate()
+    localStorage.removeItem('previouslyConnected')
+  }
+
   return (
     <Router>
       <div>
-
         <Navbar bg="dark" expand="lg" variant="dark">
           <Container>
             <Navbar.Brand id='logo'>
@@ -33,16 +56,30 @@ function App() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto justify-content-evenly w-50">
+              <Nav className="me-auto mb-lg-0 mb-3 justify-content-evenly w-50">
                 <Nav.Link className='fs-5 fw-medium' >
                   <Link to="/">Dashboard</Link>
                 </Nav.Link>
                 <Nav.Link className='fs-5 fw-medium'>
                   <Link to="/marketplace">Marketplace</Link>
                 </Nav.Link>
+                <div className='dropdown-divider bg-white d-flex d-lg-none'></div>
               </Nav>
+              {
+                active
+                  ?
+                  (<NavDropdown title='Account'>
+                    <NavDropdown.Item title='Account' >{account}</NavDropdown.Item>
+                  </NavDropdown>)
+                  : ''}
               <Navbar.Collapse className='justify-content-end'>
-                <Button onClick={() => alert('wow, you are a curious one!')}>Login</Button>
+                {
+                  active
+                    ?
+                    <Button onClick={() => Logout()}>Logout</Button>
+                    :
+                    <Button onClick={() => Login()}>Login</Button>
+                }
               </Navbar.Collapse>
             </Navbar.Collapse>
           </Container>
@@ -67,6 +104,7 @@ function App() {
         </Routes>
       </div>
     </Router >
+
   );
 }
 
