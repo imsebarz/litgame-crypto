@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, Col, Container, Row, Spinner } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Container, Row, Spinner } from "react-bootstrap"
 import Card from "./Components/Card"
 import ModalLogin from "./Components/ModalLogin"
 import './styles.scss'

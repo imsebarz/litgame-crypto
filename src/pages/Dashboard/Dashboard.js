@@ -10,12 +10,12 @@ const Dashboard = () => {
             <Container className="mt-5">
                 <Container className="w-75 mt-5 mb-5">
                     <Row>
-                        <Col className="shadow-sm justify-content-center p-5 bg-white mt-3 mb-3 mw-75" id='home-stats'>
+                        <Col className="shadow justify-content-center p-5 bg-white mt-3 mb-3 mw-75" id='home-stats'>
                             <Row>
-                                <h3 className="text-center pb-3">About You</h3>
+                                <h3 className="text-center display-6 pb-3">Dashboard</h3>
                             </Row>
-                            <Row className="justify-content-between gap-2 h-25 text-white">
-                                <Col className="info d-flex flex-row bg-primary align-items-center  flex-grow-0">
+                            <Row className="justify-content-center justify-content-xlg-between gap-2 gap-xlg-5 h-25 text-white">
+                                <Col className="info shadow d-flex flex-row bg-primary align-items-center  flex-grow-0">
                                     <Col className="w-auto flex-grow-0 ">
                                         <img
                                             src={ClockIcon}
@@ -30,7 +30,7 @@ const Dashboard = () => {
                                         <Row className="justify-content-center">last seen</Row>
                                     </Col>
                                 </Col>
-                                <Col className="info cards d-flex flex-row align-items-center flex-grow-0">
+                                <Col className="info shadow cards d-flex flex-row align-items-center flex-grow-0">
                                     <Col className="w-auto flex-grow-0 p-1">
                                         <img
                                             src={CardsIcon}
@@ -45,7 +45,7 @@ const Dashboard = () => {
                                         <Row className="justify-content-center">Cards</Row>
                                     </Col>
                                 </Col>
-                                <Col className="info d-flex flex-row bg-success align-items-center flex-grow-0">
+                                <Col className="info shadow d-flex flex-row bg-success align-items-center flex-grow-0">
                                     <Col className="w-auto flex-grow-0">
                                         <img
                                             src={EthIcon}
