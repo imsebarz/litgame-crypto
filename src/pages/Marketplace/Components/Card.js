@@ -8,7 +8,7 @@ const Card = ({ name, handleShow, id }) => {
     const [loaded, setLoaded] = useState(false)
     return (
         <Col className='position-relative'>
-            <C className="card bg-white shadow-sm align-items-center pb-2 pt-1">
+            <C key={id} className="card bg-white shadow-sm align-items-center pb-2 pt-1">
                 <Row className="image flex-grow-1">
                     <img
                         src={`https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${id}.png`}

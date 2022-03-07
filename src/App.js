@@ -27,11 +27,15 @@ function App() {
     localStorage.setItem('previouslyConnected', true)
   }, [activate])
 
-  useEffect(() => {
-    if (localStorage.getItem('previouslyConnected') === "true")
-      Login()
-  }, [Login])
+  // useEffect(() => {
+  //   if (localStorage.getItem('previouslyConnected') === "true")
+  //     Login()
+  // }, [Login])
 
+
+  useEffect(() => {
+    console.log('Oh my God! You are curious. I like you')
+  }, [])
 
 
   const Logout = () => {

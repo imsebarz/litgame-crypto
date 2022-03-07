@@ -1,5 +1,5 @@
 import { useWeb3React } from '@web3-react/core';
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 import { connector } from '../../../config/web3';
 
@@ -13,12 +13,12 @@ const ModalLogin = ({ show, close }) => {
         }
         localStorage.setItem('previouslyConnected', true)
         close()
-    }, [activate, close])
+    }, [activate, close, show])
 
-    useEffect(() => {
-        if (localStorage.getItem('previouslyConnected') === "true")
-            Login()
-    }, [Login])
+    // useEffect(() => {
+    //     if (localStorage.getItem('previouslyConnected') === "true")
+    //         Login()
+    // }, [Login])
 
 
     return (

@@ -23,10 +23,6 @@ const Marketplace = () => {
         setLoading(false)
     }
 
-    useEffect(() => {
-        console.log(cards)
-    }, [cards])
-
 
     useEffect(() => {
         getCards()

@@ -24,11 +24,6 @@ const Details = () => {
         getCardDetails(params.cardId)
     }, [params.cardId])
 
-    useEffect(() => {
-        console.log(card)
-    }, [card])
-
-
     return (
         <Container className='cards-container w-auto flex-md-nowrap flex-wrap d-flex flex-row m-5 gap-3'>
             {/* <h1>Details from {params.cardId}</h1> */}
