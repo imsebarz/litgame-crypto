@@ -8,7 +8,9 @@ const ModalLogin = ({ show, close }) => {
     const { activate } = useWeb3React()
 
     const Login = useCallback(() => {
-        activate(connector)
+        if (show) {
+            activate(connector)
+        }
         localStorage.setItem('previouslyConnected', true)
         close()
     }, [activate, close])
@@ -29,7 +31,7 @@ const ModalLogin = ({ show, close }) => {
                 <Button variant="secondary" onClick={close}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={Login}>
+                <Button variant="primary" onClick={() => Login()}>
                     Log in
                 </Button>
             </Modal.Footer>
